@@ -1,0 +1,29 @@
+<div id="main-container">
+    <div id="item">
+        <span id="name">Quote Id &nbsp;</span>
+         <span id="val">{{QuoteId}}</span>
+    </div>
+    <div id="item">
+        <span id="name">QuoteTyp</span>
+         <span id="val">{{specificData.Quote_Type}}</span>
+    </div>
+    <div id="item">
+        <span id="name">Contact&nbsp;&nbsp;&nbsp;&nbsp;</span>
+         <span id="val">{{specificData.Contact}}</span>
+    </div>
+    <div id="item">
+        <span id="name">Task Desc</span>
+         <span id="val">{{specificData.Task_Desc}}</span>
+    </div>
+    <div id="item">
+        <span id="name">Due Date &nbsp;</span>
+         <span id="val">{{specificData.Due_Date}}</span>
+    </div>
+    <div id="item">
+        <span id="name">Task Type</span>
+         <span id="val">{{specificData.Task_Type}}</span>
+    </div>
+
+    <button (click)="getBack()" id="backbtn" type="button" class="btn btn-primary">Back</button>
+    
+</div>

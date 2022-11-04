@@ -1,0 +1,13 @@
+h4{
+    font-size: larger;
+    font-weight: bolder;
+}
+
+p{
+    font-size: medium;
+    font-weight: 500;
+}
+
+#maincont{
+    width: 25vw;
+}

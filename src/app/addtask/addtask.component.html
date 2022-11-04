@@ -1,0 +1,54 @@
+
+
+<div id="maincontainer">
+    
+    <mat-toolbar id="toolbar">
+
+        <span>Add New Task</span>
+        <span class="example-spacer"></span>
+      
+      </mat-toolbar>
+
+
+    <form #addtaskform="ngForm" (ngSubmit)="submitForm(addtaskform.value)">
+        <div>
+            <label for="QuoteID">QuoteID</label>
+            <input type="number" class="form-control" name="QuoteID" ngModel required>
+            <span class="text-danger" *ngIf="addtaskform.controls['QuoteID'].errors && addtaskform.controls['QuoteID'].touched"><br>Required</span>
+        </div><br>
+        <div>
+            <label for="Quote_Type">Quote_Type</label>
+            <input type="text" class="form-control" name="Quote_Type" ngModel required>
+            <span class="text-danger" *ngIf="addtaskform.controls['Quote_Type'].errors && addtaskform.controls['Quote_Type'].touched"><br>Required</span>
+        </div><br>
+        <div>
+            <label for="Contact">Contact</label>
+            <input type="text" class="form-control" name="Contact" ngModel required>
+            <span class="text-danger" *ngIf="addtaskform.controls['Contact'].errors && addtaskform.controls['Contact'].touched"><br>Required</span>
+        </div><br>
+        <div>
+            <label for="Task_Desc">Task_Desc</label>
+            <input type="text" class="form-control" name="Task_Desc" ngModel required>
+            <span class="text-danger" *ngIf="addtaskform.controls['Task_Desc'].errors && addtaskform.controls['Task_Desc'].touched"><br>Required</span>
+        </div><br>
+        <div>
+            <label for="Due_Date">Due_Date</label>
+            <input type="datetime" placeholder="YYYY-MM-DDTHH:SS:00.1" class="form-control" name="Due_Date" ngModel required>
+            <span class="text-danger" *ngIf="addtaskform.controls['Due_Date'].errors && addtaskform.controls['Due_Date'].touched"><br>Required</span>
+            <span class="text-danger" *ngIf="addtaskform.controls['Due_Date'].errors['Date']">Invalid Date</span>
+        </div><br>
+        <div>
+            <label for="Task_Type">Task_Type</label>
+            <input type="text" class="form-control" name="Task_Type" ngModel required>
+            <span class="text-danger" *ngIf="addtaskform.controls['Task_Type'].errors && addtaskform.controls['Task_Type'].touched"><br>Required</span>
+        </div>
+       
+    
+
+        <div id="buttons">
+            <button type="submit"  class="btn btn-success">Submit</button> &nbsp; &nbsp;
+        <button type="button" class="btn btn-danger" id="closeModal"  (click)="closeFunction()" >Cancel</button>
+        </div>
+        
+    </form>
+</div>

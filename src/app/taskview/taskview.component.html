@@ -1,0 +1,125 @@
+<mat-toolbar class="taskviewtoolbar">
+
+    <span>Task Details</span>
+    <span class="example-spacer"></span>
+    
+    <button type="button" class="btn btn-success" (click)="Addtask()" >
+      Add Item
+    </button>
+  </mat-toolbar>
+
+ <div class="utilities">
+  
+
+
+    <!-- <mat-select panelClass="happy"  [(value)]="orderByValue" (valueChange)="pageselection($event)">
+      <mat-option *ngFor="let page of pages" [value]="page">{{page.value}}</mat-option>
+     </mat-select>&nbsp; -->
+
+     <label>Order By &nbsp;</label>
+    <select #orderbyy id="ordeby" (change)="orderby(orderbyy.value)">
+      <option disabled selected value> -- select an option -- </option>
+        <option value="QuoteId">QuoteId</option>
+      <option value="Quote_Type">Quote_Type</option>
+      <option value="Contact">Contact</option>
+      <option value="Task_Desc">Task_Desc</option>
+      <option value="Due_Date">Due_Date</option>
+      <option value="Task_Type">Task_Type</option>
+    </select>&nbsp;&nbsp;&nbsp;
+
+   <span id="desc">Descending</span> &nbsp;<input type="checkbox" id="cb1" (change)="checkAll($event.target)" ng-model="check" ng-click="checkAll(check)" ng-true-value="YES" ng-false-value="NO"/> 
+
+    <mat-label>Search&nbsp;&nbsp;</mat-label>
+  <input matInput (keyup)="applyFilter($event)" #input> 
+
+
+ 
+
+   
+ </div>
+
+   
+
+
+<div class="example-table-container">
+
+    <table mat-table matSort [dataSource]="dataSource" class="example-table" [matSortActive]='orderByValue' [matSortDirection]='checkedDesc'>
+
+
+        <ng-container matColumnDef="QuoteId">
+        <th mat-header-cell *matHeaderCellDef  mat-sort-header>QuoteId</th>
+        <td mat-cell *matCellDef="let row">{{row.QuoteId}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Quote_Type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Quote_Type</th>
+        <td mat-cell *matCellDef="let row">{{row.Quote_Type}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Contact">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Contact</th>
+        <td mat-cell *matCellDef="let row">{{row.Contact}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Task_Desc">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Task_Desc</th>
+        <td mat-cell *matCellDef="let row">{{row.Task_Desc}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Due_Date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Due_Date</th>
+        <td mat-cell *matCellDef="let row">{{row.Due_Date}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Task_Type">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Task_Type</th>
+        <td mat-cell *matCellDef="let row">{{row.Task_Type}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>   
+        <td mat-cell *matCellDef="let row">
+            <span id="icon" (click)="viewItem(row)" mat-icon-button color="primary">
+                <mat-icon>remove_red_eye</mat-icon>
+            </span>&nbsp;
+            <span id="icon" (click)="editItem(row)" #editicon mat-icon-button color="primary">
+            <mat-icon>edit</mat-icon>
+            </span>&nbsp;
+            <span id="icon" (click)="deleteItem(row)" mat-icon-button color="warn">
+            <mat-icon>delete</mat-icon>
+            </span>
+        </td>
+      </ng-container>
+
+      
+
+    
+
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay;"></tr>
+
+      
+    </table>
+
+    <!-- <div>
+      <pagination-controls
+      previousLabel="Prev"
+      nextLabel="Next"
+      (pageChange)="onTableDataChange($event)">
+      </pagination-controls>
+    </div>
+  </div> -->
+
+  <!-- <mat-paginator
+  [pageSize]="pageSize"
+  [pageSizeOptions]="[5, 10, 15, 20]"
+  [length]="itemCount"
+> -->
+
+<!-- <mat-paginator [length]="200" [pageSizeOptions]="[5, 10, 15]" aria-label="Select page">
+</mat-paginator> -->
+
+<mat-paginator #paginator
+                 [pageSize]="pageSize"
+                 [pageSizeOptions]="[5, 10, 20]">
+  </mat-paginator>

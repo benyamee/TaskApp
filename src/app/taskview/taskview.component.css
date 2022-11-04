@@ -1,0 +1,52 @@
+.example-table {
+    width : 100%;
+    margin: 70px;
+    margin-top: 0px;
+}
+
+#editicon {
+    border: none;
+}
+
+
+.example-spacer {
+    flex: 1 1 auto;
+  }
+
+  .taskviewtoolbar {
+    background-color: lightgray;
+    height: 40px;
+  }
+
+  #orderbyy {
+    width: 20px;
+
+  }
+
+  .happy {
+    background: orange;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-width: 350px !important;
+}
+
+.utilities {
+  margin-left: 800px;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+#cb1{
+  margin-right: 20px;
+  
+}
+
+#desc{
+  margin-left: 20px;
+}
+
+#icon :hover{
+  cursor: pointer;
+}
